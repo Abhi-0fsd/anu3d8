@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Details – Pro Look</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #e9f4ff, #ffffff); /* Professional Gradient */
+  }
+
+  /* Center white card */
+  .page-wrapper {
+    max-width: 1250px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  }
+
+  .container {
+    display: flex;
+    gap: 40px;
+  }
+
+  .left { width: 50%; }
+
+  .main-media {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .thumb-box {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+
+  .thumb-box img,
+  .thumb-box .video-thumb {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    object-fit: cover;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  }
+
+  .thumb-box img:hover,
+  .thumb-box .video-thumb:hover {
+    border: 2px solid #0099ff;
+    transform: scale(1.04);
+  }
+
+  .play-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.55);
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 40px;
+    pointer-events: none;
+  }
+
+  .video-thumb video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .right { flex: 1; }
+
+  .product-title { font-size: 32px; font-weight: bold; color: #333; }
+
+  .price { color: #1a8a1a; font-size: 28px; margin-top: 15px; }
+
+  .old-price { 
+    color: #777; 
+    text-decoration: line-through; 
+    font-size: 18px; 
+    margin-left: 10px; 
+  }
+
+  .offer-tag { 
+    background: #ff3b3b;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .desc { 
+    font-size: 17px; 
+    margin: 20px 0; 
+    line-height: 1.6;
+    color: #444;
+  }
+
+  /* Buy Now Button (Orange) */
+  .buy-btn { 
+    background: #ff9900; 
+    padding: 14px 25px; 
+    border: none; 
+    color: white; 
+    font-size: 18px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .buy-btn:hover { background: #e68a00; }
+
+  /* Add to Cart Button (Green) */
+  .cart-btn {
+    background: #2ecc71;
+    padding: 14px 25px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .cart-btn:hover { background: #29b765; }
+
+</style>
+
+<script>
+  const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/xxxx/video/upload/v173389xxxx/WhatsApp_Video.mp4";
+
+  function changeMedia(src, type) {
+    let mainBox = document.getElementById("mainDisplay");
+
+    if (type === "image") {
+      mainBox.innerHTML = `<img src="${src}" class="main-media">`;
+    } 
+    else {
+      mainBox.innerHTML = `
+        <video class="main-media" controls autoplay>
+          <source src="${src}" type="video/mp4">
+        </video>`;
+    }
+  }
+</script>
+
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<div class="container">
+
+  <div class="left">
+    <div id="mainDisplay">
+      <img src="https://i.postimg.cc/ZYLxQdQY/Whats-App-Image-2025-12-10-at-19-33-29-dd4202ed.jpg" class="main-media">
+    </div>
+
+    <div class="thumb-box">
+
+      <img 
+        src="https://i.postimg.cc/ZYLxQdQY/Whats-App-Image-2025-12-10-at-19-33-29-dd4202ed.jpg"
+        onclick="changeMedia(this.src, 'image')" />
+
+      <img 
+        src="https://i.postimg.cc/MGY8kgDQ/Whats-App-Image-2025-12-10-at-19-33-29-6b09f459.jpg"
+        onclick="changeMedia(this.src, 'image')" />
+
+      <img 
+        src="https://i.postimg.cc/020k5sYQ/Whats-App-Image-2025-12-10-at-19-33-27-a5074409.jpg"
+        onclick="changeMedia(this.src, 'image')" />
+
+      <div class="video-thumb" onclick="changeMedia(CLOUDINARY_VIDEO_URL, 'video')">
+        <video src="https://res.cloudinary.com/djs5sv8bw/video/upload/v1765428214/WhatsApp_Video_2025-12-10_at_19.33.27_363775e5_u03pvr.mp4" muted></video>
+        <div class="play-icon">▶</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="right">
+    <h1 class="product-title">Couples PhotoFrame</h1>
+
+    <span class="offer-tag">43% OFF</span>
+
+    <p class="price">
+      ₹800 
+      <span class="old-price">₹1000</span>
+    </p>
+
+    <p class="desc">
+      ✔ Matte Finish<br>
+      ✔ Long Lasting<br>
+      ✔ Natural Look
+    </p>
+
+    <a href="am9.html">
+      <button class="buy-btn">Buy Now</button>
+    </a>
+
+    <br>
+
+    <a href="cart.html">
+      <button class="cart-btn">Add to Cart</button>
+    </a>
+
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
