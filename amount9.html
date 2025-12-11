@@ -9,7 +9,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 40px;
-    background: linear-gradient(135deg, #e9f4ff, #ffffff); /* Professional Gradient */
+    background: linear-gradient(135deg, #e9f4ff, #ffffff);
   }
 
   /* Center white card */
@@ -113,7 +113,6 @@
     color: #444;
   }
 
-  /* Buy Now Button (Orange) */
   .buy-btn { 
     background: #ff9900; 
     padding: 14px 25px; 
@@ -128,7 +127,6 @@
 
   .buy-btn:hover { background: #e68a00; }
 
-  /* Add to Cart Button (Green) */
   .cart-btn {
     background: #2ecc71;
     padding: 14px 25px;
@@ -145,7 +143,9 @@
 </style>
 
 <script>
-  const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/xxxx/video/upload/v173389xxxx/WhatsApp_Video.mp4";
+
+  /* 🔥 REPLACE THIS WITH YOUR REAL CLOUDINARY URL */
+  const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/djs5sv8bw/video/upload/v1765428214/WhatsApp_Video_2025-12-10_at_19.33.27_363775e5_u03pvr.mp4";
 
   function changeMedia(src, type) {
     let mainBox = document.getElementById("mainDisplay");
@@ -155,8 +155,8 @@
     } 
     else {
       mainBox.innerHTML = `
-        <video class="main-media" controls autoplay>
-          <source src="${src}" type="video/mp4">
+        <video class="main-media" controls autoplay muted playsinline>
+          <source src="https://res.cloudinary.com/djs5sv8bw/video/upload/v1765428214/WhatsApp_Video_2025-12-10_at_19.33.27_363775e5_u03pvr.mp4" type="video/mp4">
         </video>`;
     }
   }
@@ -189,7 +189,7 @@
         onclick="changeMedia(this.src, 'image')" />
 
       <div class="video-thumb" onclick="changeMedia(CLOUDINARY_VIDEO_URL, 'video')">
-        <video src="https://res.cloudinary.com/djs5sv8bw/video/upload/v1765428214/WhatsApp_Video_2025-12-10_at_19.33.27_363775e5_u03pvr.mp4" muted></video>
+        <video src="https://res.cloudinary.com/djs5sv8bw/video/upload/v1765428214/WhatsApp_Video_2025-12-10_at_19.33.27_363775e5_u03pvr.mp4" muted playsinline></video>
         <div class="play-icon">▶</div>
       </div>
 
